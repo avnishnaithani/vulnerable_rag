@@ -157,7 +157,8 @@ This simulates a lightweight guardrail mechanism.
 
 If no payload is uploaded:
 
-context = "" \n
+context = ""
+
 system_prompt = SAFE_SYSTEM_PROMPT
 
 If payload is uploaded:
