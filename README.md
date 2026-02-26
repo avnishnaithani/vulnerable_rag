@@ -176,7 +176,7 @@ Emails replaced with [REDACTED_EMAIL]
 
 Phone numbers replaced with [REDACTED_PHONE]
 
-⚠ Important:
+### Important:
 The model still receives the original unredacted context.
 This simulates real-world RAG systems where UI protections do not protect the model.
 
