@@ -13,15 +13,23 @@ st.title("Indirect Prompt Injection – Demo")
 # API Key (Streamlit Cloud Secrets)
 # ----------------------------
 def get_api_key():
-    # Streamlit Secrets first
     try:
         if "OPENAI_API_KEY" in st.secrets:
             return str(st.secrets["OPENAI_API_KEY"]).strip()
     except Exception:
         pass
-
-    # Fallback: environment variable (useful if running locally)
     return (os.getenv("OPENAI_API_KEY") or "").strip()
+
+api_key = get_api_key()
+
+if not api_key:
+    st.error("Missing OPENAI_API_KEY in Streamlit Secrets.")
+    st.stop()
+
+# fingerprint (safe)
+st.caption(f"Loaded API key: length={len(api_key)}, suffix=...{api_key[-4:]}")
+
+client = OpenAI(api_key=api_key)
 
 
 api_key = get_api_key()
